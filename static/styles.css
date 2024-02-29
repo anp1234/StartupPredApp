@@ -1,0 +1,9 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0b58b545;
+}
+
+.centered {
+    text-align: center;
+}
