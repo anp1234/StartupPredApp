@@ -1,30 +1,166 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Startup Acquisition Prediction</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="..\static\styles.css">
+  <style>
+    /* Optional: Add custom styles here */
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <h1>Startup Acquisition Prediction</h1>
+    <br>
 
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
-    </head>
-    <body>
-        <h1 >Startup Prediction Model</h1>
-           <h2>Contact Form</h2>
-    <form action="/submit_form" method="post">
-        <label for="name">Name:</label><br>
-        <input type="text" id="name" name="name" required><br>
+    <form  id="myForm" action="/submit" method="POST">
+
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" name="name" id="name" placeholder="Enter company's name">
+      </div>
+      <div class="form-group">
+        <label for="category">Category</label>
+        <select class="form-control"name="category" id="category">
+          <option value="">Select the company category</option>
+          <option value="0">Web</option>
+          <option value="1">Advertising</option>
+          <option value="3">Games</option>
+          <option value="4">Mobile</option>
+          <option value="5">Software</option>
+          <option value="6">Network Hosting</option>
+          <option value="7">Consulting</option>
+          <option value="8">Education</option>
+          <option value="9">Enterprise</option>
+          <option value="10">Ecommerce</option>
+          <option value="11">Public Relation</option>
+          <option value="12">Search</option>
+          <option value="13">Hardware</option>
+          <option value="14">Biotech</option>
+          <option value="15">Others</option>
+          <!-- Add more options as needed -->
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="founded_at">Year of Establishment</label>
+        <input type="text" class="form-control" name="founded_at" id="founded_at" placeholder="Year company was founded(eg:2013)">
+      </div>
+
+      <div class="form-group">
+        <label for="closed_at">Year of Company Closure</label>
+        <input type="text" class="form-control" name="closed_at" id="closed_at" placeholder="If company is closed(eg:2013)">
+      </div>
+
+      <div class="form-group">
+        <label for="country">Country</label>
+        <select class="form-control" name="country" id="country">
+          <option value="">Select country</option>
+          <option value="0">United States</option>
+          <option value="14">Canada</option>
+          <option value="7">United Kingdom</option>
+          <option value="3">Australia</option>
+          <option value="4">France</option>
+          <option value="10">Germany</option>
+          <option value="15">Italy</option>
+          <option value="5">Netherlands</option>
+          <option value="13">Spain</option>
+          <option value="9">Sweden</option>    
+          <option value="8">Ireland</option>
+          <option value="6">Israel</option>
+          <option value="11">Brazil</option>
+          <option value="12">China</option>
+          <option value="2">India</option>
+          <option value="1">Others</option>
+        </select>
         
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required><br>
-        
-        <label for="message">Message:</label><br>
-        <textarea id="message" name="message" rows="4" cols="50" required></textarea><br>
-        
-        <input type="submit" value="Submit">
+      </div>
+      <div class="form-group">
+        <label for="location">Location</label>
+        <div class="form-row">
+          <div class="col">
+        <input type="number" class="form-control" name="lat" id="lat" placeholder="Enter latitude(-90 to 90)">
+          </div>
+          <div class="col">
+        <input type="number" class="form-control" name="long" id="long" placeholder="Enter longitude(-180 to 180)">
+          </div>
+      </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="funding_rounds">Funding Rounds</label>
+        <input type="number" class="form-control" name="funding_rounds" id="funding_rounds" placeholder="Enter number of funding rounds">
+      </div>
+      <div class="form-group">
+        <label for="total_funding">Total Funding</label>
+        <input type="number" class="form-control" name="total_funding" id="total_funding" placeholder="Enter total funding amount(USD)">
+      </div>
+      <div class="form-group">
+        <label for="first_funding">First Funding Year</label>
+        <input type="text" class="form-control" name="first_funding" id="first_funding" placeholder="Year company was fisrt funded(eg:2013)">
+      </div>
+
+      <div class="form-group">
+        <label for="last_funding">Last Funding Year</label>
+        <input type="text" class="form-control" name="last_funding" id="last_funding" placeholder="Year company was last funded(eg:2013)">
+      </div>
+      <div class="form-group">
+        <label for="milestones">Milestones</label>
+        <input type="number" class="form-control" name="milestones" id="milestones" placeholder="Enter the milestones number">
+      </div>
+      <div class="form-group">
+        <label for="first_milestone">First Milestone Year</label>
+        <input type="text" class="form-control" name="first_milestone" id="first_milestone" placeholder="Year of first milestone(eg:2013)">
+      </div>
+      <div class="form-group">
+        <label for="last_milestone">Last Milestone Year</label>
+        <input type="text" class="form-control" name="last_milestone" id="last_milestone" placeholder="Year of Last Milestone(eg:2013)">
+      </div>
+      
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <br>
+      <br>
+      <br>
+      <br>
     </form>
-        
-        
-    </body>
+  </div>
+  <!-- Bootstrap JS (optional) -->
+  <script>
+
+
+
+document.getElementById("myForm").addEventListener("submit", function (event) {
+  // Get the value of each input field
+  var input1 = document.getElementById("name").value;
+  var input2 = document.getElementById("category").value;
+  var input3 = document.getElementById("founded_at").value;
+  var input4 = document.getElementById("closed_at").value;
+  var input5 = document.getElementById("country").value;
+  var input6 = document.getElementById("lat").value;
+  var input7 = document.getElementById("long").value;
+  var input8 = document.getElementById("funding_rounds").value;
+  var input9 = document.getElementById("total_funding").value;
+  var input10 = document.getElementById("first_funding").value;
+  var input11= document.getElementById("last_funding").value;
+  var input12 = document.getElementById("milestones").value;
+  var input13 = document.getElementById("first_milestone").value;
+  var input14= document.getElementById("last_milestone").value;
+  
+  // Check if any of the input fields are empty
+  if (input1 === "" || input2 === "" || input3 === "" || input4 === ""|| input5 === "" || input6 ===""|| input7 === "" ||input8 === "" || input9===""|| input10===""|| input11===""|| input12===""|| input13===""|| input14===""){
+    // Prevent the form from being submitted
+    event.preventDefault();
+
+    // Display an alert message
+    alert("Please fill in all fields");
+  }
+});
+
+
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 </html>

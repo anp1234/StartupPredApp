@@ -1,9 +1,12 @@
 /* styles.css */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #0b58b545;
+    font-family: Arial, serif;
+    background-color: #87d6d0d8;
+}
+h1 {
+    text-align: center;
 }
 
-.centered {
+.btn-primary {
     text-align: center;
 }
