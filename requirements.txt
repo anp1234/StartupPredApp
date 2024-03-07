@@ -19,7 +19,7 @@ MarkupSafe
 numpy
 pandas
 pathspec
-pypiwin32
+
 python-dateutil
 pytz
 
